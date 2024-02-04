@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //create object
 
-    Button buttonAdd,buttonSub,buttonMul,buttonDiv;
+    Button buttonAdd,buttonSub,buttonMul,buttonDiv,buttonPer,buttonAc;
     EditText editTextN1,editTextN2;
     TextView textView;
     int num1,num2;
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSub=findViewById(R.id.btn_sub);
         buttonMul=findViewById(R.id.btn_mul);
         buttonDiv=findViewById(R.id.btn_div);
+        buttonPer=findViewById(R.id.btn_per);
+        buttonAc=findViewById(R.id.btn_ac);
 
         editTextN1=findViewById(R.id.number1);
         editTextN2=findViewById(R.id.number2);
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSub.setOnClickListener(this);
         buttonMul.setOnClickListener(this);
         buttonDiv.setOnClickListener(this);
+        buttonPer.setOnClickListener(this);
+        buttonAc.setOnClickListener(this);
     }
 
     //Function for input that's means edittext
@@ -53,18 +57,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         num2 = getIntFromEditText(editTextN2);
 
         if (view.getId() == R.id.btn_add) {
-            textView.setText("Answer = " + (num1 + num2));
+            textView.setText("Answer(Add) = " + (num1 + num2));
         } else if (view.getId() == R.id.btn_sub) {
-            textView.setText("Answer = " + (num1 - num2));
+            textView.setText("Answer(Sub) = " + (num1 - num2));
         } else if (view.getId() == R.id.btn_mul) {
-            textView.setText("Answer = " + (num1 * num2));
+            textView.setText("Answer(Mul) = " + (num1 * num2));
         } else if (view.getId() == R.id.btn_div) {
             if (num2 != 0) {
-                textView.setText("Answer = " + ((double) num1 / num2));
+                textView.setText("Answer(Div) = " + ((double) num1 / num2));
             } else {
                 Toast.makeText(this, "Cannot divide by zero", Toast.LENGTH_SHORT).show();
             }
+        } else if (view.getId() == R.id.btn_per) {
+            textView.setText("Answer(percentage just num1) = " + ((double)num1/100));
+        }else if (view.getId() == R.id.btn_ac) {
+            textView.setText(" ");
+            editTextN1.setText("");
+            editTextN2.setText("");
+
+
+
         }
+
     }
 
 }
